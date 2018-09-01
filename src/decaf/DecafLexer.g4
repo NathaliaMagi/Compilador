@@ -14,18 +14,18 @@ tokens
   TK_class
 }
 
-LCURLY : '{';
-RCURLY : '}';
-
-IF : 'if'
-ID  :(a-z| A-Z)+;
+IF : 'if';
+ID  : ('_'|LETRA)(LETRA|NUM|'_')*;
 CHAR : '\'' (ESC|ASCII) '\'';
 STRING : '"' (ESC|ASCII)* '"';
 
-fragment ESC :  '\\' ('n'|'t'|'\\'|'"');
-fragment ASCII : [a-zA-Z0-9 !#-&(-/:-@^-`{-~];
 
-
-WS_ : (' ' | '\n' ) -> skip;
+WS_ : (' '|'\n' ) -> skip;
 SL_COMMENT : '//' (~'\n')* '\n' -> skip;
+
+fragment ESC : '\\' ('n'|'t'|'\\'|'"');
+fragment ASCII : [a-zA-Z0-9 !#-&(-/:-@^-`{-~];
+fragment NUM : ('0'..'9');
+fragment LETRA : ('a'..'z'|'A'..'Z');
+
 
