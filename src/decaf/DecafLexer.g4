@@ -15,7 +15,7 @@ tokens
 }
 
 IF : 'if';
-ID  : ('_'|LETRA)(LETRA|NUM|'_')*;
+ID  : ('_'|LETRA|NUM|'_')*;
 CHAR : '\'' (ESC|ASCII) '\'';
 STRING : '"' (ESC|ASCII)* '"';
 
