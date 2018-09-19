@@ -13,11 +13,13 @@ tokens
 {
   TK_class
 }
+
+TIPO: 'int' | 'boolean';
 BOOLEAN : 'boolean';
 CALLOUT : 'callout';
 CLASS : 'class';
+PROGRAM : 'Program';
 ELSE : 'else';
-BOOLEANN : ('true'|'false');
 IF : 'if';
 INT : 'int';
 RETURN : 'return';
@@ -27,11 +29,44 @@ BREAK : 'break';
 CONTINUE : 'continue';
 
 
-ID  : ('_'|LETRA)(LETRA|NUM|'_')*;
+SOMA : '+';
+SUBT : '-';
+MULT : '*';
+PORCE : '%';
+DIVISAO : '/';
+MAIOQ : '>';
+MENORQ : '<';
+IGUAL : '=';
+QUADRA : '^';
+MAIORIGUAL : '>=';
+MENORIGUAL : '<=';
+AND: '&&';
+OU : '||';
+DIFEREN : '!=';
+CHAVEESQ : '{';
+VIRGU : ',';
+PONTVIRG : ';';
+CHAVEDIR :'}';
+BARRA : '|';
+COLCHETEESQ : '[';
+COLCHETEDIR : ']';
+IGUALDADE : '==';
+PARENESQ : '(';
+PARENDIR : ')';
+MAISUM: '+=';
+MENOSUM : '-='; 
+TRACO : '-';
+EXCLA : '!';
+ALPHA : ('a'..'z'|'A'..'Z');
+DIGITO : ('0'..'9');
+TRUE : 'true';
+FALSE : 'false';
+
+
+ID  : (LETRA)(LETRA|NUM|'_')*;
 CHAR : '\'' (ESC|ASCII) '\'';
 STRING : '\"' (ESC|ASCII|'\\"'|'\\\'')* '\"';
 NUMBER : (NUM)+;
-OPER : ('+'|'-'|'*'|'<'|'>'|'='|'^'|'>='|'<='|'&&'|'!='|'{'|','|';'|'}'|'['|'|'|'=='|'('|')'|']');
 HEXA : '0x'('a'..'f'|NUM)*;
 
 
