@@ -12,17 +12,15 @@ options
 
 program : CLASS PROGRAM CHAVEESQ campo_decl* metodo_decl* CHAVEDIR;
 
-campo_decl : TIPO ID PONTVIRG;
+campo_decl : var_campo_decl (VIRGU var_campo_decl)* PONTVIRG;
 
-tipo : INT | BOOLEAN;
+var_campo_decl : TIPO id|TIPO id COLCHETEESQ int_literal COLCHETEDIR;
 
-metodo_decl: (tipo|VOID) id PARENESQ (tipo id(VIRGU tipo id)*)? PARENDIR block;
+metodo_decl: (TIPO|VOID) id PARENESQ (TIPO id(VIRGU TIPO id)*)? PARENDIR block;
 
 block : CHAVEESQ var_decl* statement* CHAVEDIR;
 
-var_decl : tipo id (VIRGU id)* PONTVIRG;
-
-
+var_decl : TIPO id (VIRGU id)* PONTVIRG;
 
 statement : local assign_op expr PONTVIRG
 	|metodo_call PONTVIRG
@@ -49,7 +47,7 @@ expr : local
 	|metodo_call
 	|literal
 	|expr bin_op expr
-	|TRACO expr
+	|SUBT expr
 	|EXCLA expr
 	|PARENESQ expr PARENDIR;
 
@@ -69,19 +67,11 @@ literal : int_literal|char_literal|bool_literal;
 
 id : ID;
 
-digito : NUMBER;
-
-hex_digito : NUMBER;
-
-int_literal : decimal_literal|hex_literal;
-
-decimal_literal : NUMBER NUMBER*;
-
-hex_literal : HEXA HEXA*;
+int_literal : NUMBER|HEXA;
 
 bool_literal : TRUE|FALSE;
 
-char_literal : CHAR*;
+char_literal : CHAR;
 
 string_literal : STRING*;
 

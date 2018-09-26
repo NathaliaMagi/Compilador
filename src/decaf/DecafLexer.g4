@@ -54,20 +54,17 @@ IGUALDADE : '==';
 PARENESQ : '(';
 PARENDIR : ')';
 MAISUM: '+=';
-MENOSUM : '-='; 
-TRACO : '-';
+MENOSUM : '-=';
 EXCLA : '!';
-ALPHA : ('a'..'z'|'A'..'Z');
-DIGITO : ('0'..'9');
 TRUE : 'true';
-FALSE : 'false';
+FALSE : 'false';		
 
-
+	
 ID  : (LETRA)(LETRA|NUM|'_')*;
 CHAR : '\'' (ESC|ASCII) '\'';
 STRING : '\"' (ESC|ASCII|'\\"'|'\\\'')* '\"';
 NUMBER : (NUM)+;
-HEXA : '0x'('a'..'f'|NUM)*;
+HEXA : '0x'('a'..'f'|[A-F]|NUM);
 
 
 WS_ : (' '|'\n'|'\t' ) -> skip;
