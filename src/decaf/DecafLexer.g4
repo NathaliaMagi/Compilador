@@ -13,15 +13,12 @@ tokens
 {
   TK_class
 }
-
-TIPO: 'int' | 'boolean';
-BOOLEAN : 'boolean';
+TIPO : 'boolean'|'int';
 CALLOUT : 'callout';
 CLASS : 'class';
 PROGRAM : 'Program';
 ELSE : 'else';
 IF : 'if';
-INT : 'int';
 RETURN : 'return';
 VOID : 'void';
 FOR : 'for';
@@ -34,7 +31,7 @@ SUBT : '-';
 MULT : '*';
 PORCE : '%';
 DIVISAO : '/';
-MAIOQ : '>';
+MAIORQ : '>';
 MENORQ : '<';
 IGUAL : '=';
 QUADRA : '^';
@@ -54,7 +51,8 @@ IGUALDADE : '==';
 PARENESQ : '(';
 PARENDIR : ')';
 MAISUM: '+=';
-MENOSUM : '-=';
+MENOSUM : '-='; 
+TRACO : '-';
 EXCLA : '!';
 TRUE : 'true';
 FALSE : 'false';		
