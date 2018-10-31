@@ -33,7 +33,7 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
     @Override
     public void enterCampo_decl(DecafParser.Campo_declContext ctx) {
         String name = ctx.ID().getText();
-        int typeTokenType = ctx.type().start.getType();
+        int typeTokenType = ctx.ID().start.getType();
         DecafSymbol.Type type = this.getType(typeTokenType);
 
         // push new scope by making new one that points to enclosing scope
@@ -64,7 +64,7 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
 
     @Override
     public void enterMetodo_decl(DecafParser.Metodo_declContext ctx) {
-        defineVar(ctx.type(), ctx.ID().getSymbol());
+        defineVar(ctx.tid(), ctx.ID().getSymbol());
     }
 
     @Override
@@ -131,7 +131,7 @@ public class DecafSymbolsAndScopes extends DecafParserBaseListener {
     public static DecafSymbol.Type getType(int tokenType) {
         switch ( tokenType ) {
             case DecafParser.VOID :  return DecafSymbol.Type.tVOID;
-            case DecafParser.INTEGER_LITERAL :   return DecafSymbol.Type.tINT;
+            case DecafParser.NUMBER:   return DecafSymbol.Type.tINT;
         }
         return DecafSymbol.Type.tINVALID;
     }

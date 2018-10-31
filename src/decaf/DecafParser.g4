@@ -37,10 +37,9 @@ assign_op : IGUAL
 	|MAISUM
 	|MENOSUM;
 
-metodo_call : metodo_nome PARENESQ (expr (VIRGU expr)*)? PARENDIR
+metodo_call : IDPARENESQ (expr (VIRGU expr)*)? PARENDIR
 	|CALLOUT PARENESQ string_literal (VIRGU callout_arg (VIRGU callout_arg)*)? PARENDIR;
 
-metodo_nome : ID;
 
 local : ID
 	|ID COLCHETEESQ expr COLCHETEDIR;

@@ -57,10 +57,6 @@ class Main {
 		        				type = " STRINGLITERAL";
 		        				break;
 					
-							case DecafLexer.BOOLEAN:
-		        				type = " BOOLEANLITERAL";
-		        				break;
-		
 							case DecafLexer.HEXA:
 		        				type = " INTLITERAL";
 		        				break;
