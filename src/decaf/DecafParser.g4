@@ -12,17 +12,21 @@ options
 
 program : CLASS PROGRAM CHAVEESQ campo_decl* metodo_decl* CHAVEDIR;
 
-campo_decl : var_campo_decl (VIRGU var_campo_decl)* PONTVIRG;
+campo_decl : tipo ID (VIRGU tid)* PONTVIRG|tipo ID var_campo_decl(VIRGU tid var_campo_decl)* PONTVIRG;
 
-var_campo_decl : tid|tid COLCHETEESQ int_literal COLCHETEDIR;
+var_campo_decl : COLCHETEESQ int_literal COLCHETEDIR;
 
-metodo_decl: (TIPO|VOID) ID PARENESQ (tid (VIRGU tid )*)? PARENDIR block;
+metodo_decl: (tipo|VOID) ID PARENESQ (tid (VIRGU tid )*)? PARENDIR block;
 
 block : CHAVEESQ var_decl* statement* CHAVEDIR;
 
-var_decl : tid  (VIRGU ID)* PONTVIRG;
+virid : VIRGU ID;
 
-tid : TIPO ID;
+var_decl : tipo ID (virid)* PONTVIRG;
+
+tid : tipo ID;
+
+tipo : TIPO;
 
 statement : local assign_op expr PONTVIRG
 	|metodo_call PONTVIRG
@@ -37,7 +41,7 @@ assign_op : IGUAL
 	|MAISUM
 	|MENOSUM;
 
-metodo_call : IDPARENESQ (expr (VIRGU expr)*)? PARENDIR
+metodo_call : ID PARENESQ (expr (VIRGU expr)*)? PARENDIR
 	|CALLOUT PARENESQ string_literal (VIRGU callout_arg (VIRGU callout_arg)*)? PARENDIR;
 
 

@@ -5,6 +5,7 @@ import java.io.*;
 import java.util.Arrays;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.ANTLRInputStream;
@@ -135,8 +136,10 @@ class Main {
 					viewr.setScale(1.5);//scale a little
 					panel.add(viewr);
 					frame.add(panel);
+					JScrollPane scrollPane = new JScrollPane(panel);
+				       	frame.add(scrollPane);
 					frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-					frame.setSize(600,400);
+					frame.setSize(1280,720);
 					frame.setVisible(true);
 				}
 
